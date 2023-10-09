@@ -13,8 +13,20 @@ chmod +x "$HOME/kcdscript/pyssh"
 cp pyssh.py "$HOME/kcdscript/pyssh.py"
 sed -i '/alias pyssh/d' "$HOME/.bashrc"
 
+if [[ -f "$HOME/.bash_profile" ]];
+then
+
+cat << EOF >> "$HOME/.bash_profile"
+export PATH=\$PATH:"\$HOME/kcdscript"
+EOF
+
+else
+
 cat << EOF >> "$HOME/.bashrc"
 export PATH=\$PATH:"\$HOME/kcdscript"
 EOF
+
+fi
+
 
 
